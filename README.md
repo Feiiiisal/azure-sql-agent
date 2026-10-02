@@ -1,9 +1,25 @@
 # Azure SQL Agent
 
+[![Tests](https://github.com/Feiiiisal/azure-sql-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/Feiiiisal/azure-sql-agent/actions/workflows/tests.yml)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Claude](https://img.shields.io/badge/LLM-Claude-orange)
+![MCP](https://img.shields.io/badge/tools-MCP-green)
+
 An AI agent that answers plain-English questions about data by querying an
 Azure SQL Database through an MCP (Model Context Protocol) server.
 
 ![Streamlit UI: a plain-English question, the answer, and the SQL that ran](docs/screenshot.png)
+
+## Features
+
+- **Ask in plain English.** Claude inspects the schema, writes the SQL and explains the result.
+- **Always shows its work.** Every answer includes the exact SQL that ran, plus token usage and tool-call count.
+- **Read-only by design.** Three layers (a `db_datareader` database user, a read-only MCP tool list, and an agent-side single-`SELECT` guard) mean a prompt injection cannot change data.
+- **Bounded cost and runtime.** Capped output tokens, a tool-call limit, a row limit and a query timeout.
+- **No secrets in code.** All settings come from `.env`; error messages are scrubbed of secrets and server names.
+- **Handles a paused serverless database**: it waits for the database to wake up and retries.
+- **CLI and Streamlit UI**, with a unit-tested query guard and a live eval set.
 
 ## Goal
 
