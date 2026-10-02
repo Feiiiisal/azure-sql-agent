@@ -1,0 +1,14 @@
+# LLM: official Anthropic SDK for Claude
+anthropic
+
+# MCP client for talking to the Azure SQL MCP server
+mcp
+
+# Load configuration and secrets from .env
+python-dotenv
+
+# Testing
+pytest
+
+# Web UI
+streamlit

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "mssql": {
+      "type": "stdio",
+      "command": ".venv/Scripts/python.exe",
+      "args": [
+        "scripts/run_mssql_mcp.py"
+      ],
+      "env": {}
+    }
+  }
+}
